@@ -1,5 +1,5 @@
 /*
- * geanyastyle.cpp - Arctic Style plugin for the Geany IDE
+ * GeanyAstyle.cpp - Arctic Style plugin for the Geany IDE
  *
  * Copyright 2011 Valentin Kunz <vale.kunz@googlemail.com>
  *
@@ -17,12 +17,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "geanyastyle.hpp"
+#include "GeanyAstyle.hpp"
 
-PLUGIN_VERSION_CHECK(201)
+// check API version
+gint plugin_version_check(gint abi_ver)
+{
+    if(abi_ver != GEANY_ABI_VERSION)
+    {
+        return -1;
+    }
 
-PLUGIN_SET_INFO("GeanyAstyle", "Arctic Style code formatter plugin.",
-                "0.1.0", "Valentin Kunz <vale.kunz@googlemail.com>");
+    return (201);
+}
+
+// populate plugin information
+void plugin_set_info(PluginInfo *info)
+{
+    // [TODO] modify build system: add i18n support
+    //main_locale_init((localedir), (package));
+    info->name = "GeanyAstyle";
+    info->description = "Arctic Style code formatter plugin.";
+    info->version = "0.1.0";
+    info->author = "Valentin Kunz <vale.kunz@googlemail.com>";
+}
 
 void plugin_init(GeanyData* data)
 {

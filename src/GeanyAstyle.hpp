@@ -1,5 +1,5 @@
 /*
- * geanyastyle.hpp - Arctic Style plugin for the Geany IDE
+ * GeanyAstyle.hpp - Arctic Style plugin for the Geany IDE
  *
  * Copyright 2011 Valentin Kunz <vale.kunz@googlemail.com>
  *
