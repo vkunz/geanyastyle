@@ -24,7 +24,7 @@ endif(InSource)
 # find pkg-config
 find_package(PkgConfig REQUIRED)
 
-# find geany package config useing pkg-config
+# find geany package config using pkg-config
 pkg_check_modules(GEANY REQUIRED geany)
 
 # add include directories provided by pkg-config

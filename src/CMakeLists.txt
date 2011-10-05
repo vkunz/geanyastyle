@@ -14,10 +14,12 @@ endif(CMAKE_BUILD_TYPE STREQUAL Release)
 
 # geanyastyle sources
 set(geanyastyleSources
+    AstyleConfig.cpp
     GeanyAstyle.cpp)
 
 # geanyastyle headers
 set(geanyastyleHeaders
+    AstyleConfig.hpp
     GeanyAstyle.hpp)
 
 # add new executable

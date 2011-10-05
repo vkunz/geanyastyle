@@ -27,7 +27,7 @@ gint plugin_version_check(gint abi_ver)
         return -1;
     }
 
-    return (201);
+    return 201;
 }
 
 // populate plugin information
@@ -47,4 +47,12 @@ void plugin_init(GeanyData* data)
 
 void plugin_cleanup(void)
 {
+}
+
+GtkWidget* plugin_configure(GtkDialog *dialog)
+{
+    // [TODO] add graphical configuration panel
+    GtkWidget* vbox = gtk_vbox_new(FALSE, 1);
+
+    return vbox;
 }
