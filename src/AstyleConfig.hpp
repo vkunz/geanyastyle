@@ -89,6 +89,98 @@ public:
         modeJava
     };
 
+    int getBracketStyle() const;
+    void setBracketStyle(int style);
+
+    int getIndentStyle() const;
+    void setIndentStyle(int style);
+
+    int getIndentLength() const;
+    void setIndentLength(int length);
+
+    bool getIndentClasses() const;
+    void setIndentClasses(bool flag);
+
+    bool getIndentSwitches() const;
+    void setIndentSwitches(bool flag);
+
+    bool getIndentCases() const;
+    void setIndentCases(bool flag);
+
+    bool getIndentNamespaces() const;
+    void setIndentNamespaces(bool flag);
+
+    bool getIndentLabels() const;
+    void setIndentLabels(bool flag);
+
+    bool getIndentPreprocessor() const;
+    void setIndentPreprocessor(bool flag);
+
+    bool getIndentCol1Comments() const;
+    void setIndentCol1Comments(bool flag);
+
+    int getMinConditionalIndent() const;
+    void setMinConditionalIndent(int indent);
+
+    int getMaxInStatementIndent() const;
+    void setMaxInStatementIndent(int indent);
+
+    bool getBreakBlocks() const;
+    void setBreakBlocks(bool flag);
+
+    bool getBreakBlocksAll() const;
+    void setBreakBlocksAll(bool flag);
+
+    bool getPadOper() const;
+    void setPadOper(bool flag);
+
+    bool getPadParen() const;
+    void setPadParen(bool flag);
+
+    bool getPadParenOut() const;
+    void setPadParenOut(bool flag);
+
+    bool getPadParenIn() const;
+    void setPadParenIn(bool flag);
+
+    bool getPadHeader() const;
+    void setPadHeader(bool flag);
+
+    bool getDeleteEmptyLines() const;
+    void setDeleteEmptyLines(bool flag);
+
+    bool getFillEmptyLines() const;
+    void setFillEmptyLines(bool flag);
+
+    bool getBreakClosingBrackets() const;
+    void setBreakClosingBrackets(bool flag);
+
+    bool getBreakElseifs() const;
+    void setBreakElseifs(bool flag);
+
+    bool getAddBrackets() const;
+    void setAddBrackets(bool flag);
+
+    bool getAddOneLineBrackets() const;
+    void setAddOneLineBrackets(bool flag);
+
+    bool getKeepOneLineBlocks() const;
+    void setKeepOneLineBlocks(bool flag);
+
+    bool getKeepOneLineStatements() const;
+    void setKeepOneLineStatements(bool flag);
+
+    bool getConvertTabs() const;
+    void setConvertTabs(bool flag);
+
+    int getAlignPointer() const;
+    void setAlignPointer(int aptr);
+
+    int getAlignReference() const;
+    void setAlignReference(int aref);
+
+    int getFileMode() const;
+    void setFileMode(int mode);
 private:
     // bracket style options
     // bracket style
@@ -101,7 +193,7 @@ private:
 
     // indentation options
     // indent classes
-    bool m_indentClass;                     // --indent-classes
+    bool m_indentClasses;                   // --indent-classes
 
     // indent switch
     bool m_indentSwitches;                  // --indent-switches

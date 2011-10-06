@@ -33,7 +33,7 @@ AstyleConfig::AstyleConfig()
     m_indentLength = 4;
 
     // indentation options
-    m_indentClass = false;
+    m_indentClasses = false;
     m_indentSwitches = false;
     m_indentCases = false;
     m_indentNamespaces = false;
@@ -158,7 +158,7 @@ std::string AstyleConfig::serialize()
     };
 
     // indentation options
-    if(m_indentClass)
+    if(m_indentClasses)
     {
         config += "indent-classes";
         config += separator;
@@ -364,6 +364,437 @@ std::string AstyleConfig::serialize()
     }
 
     return config;
+}
+
+int AstyleConfig::getBracketStyle() const
+{
+    return static_cast<int>(m_bracketStyle);
+}
+
+void AstyleConfig::setBracketStyle(int style)
+{
+    switch (style)
+    {
+    case 1:
+        m_bracketStyle = bracketDefault;
+        break;
+    case 2:
+        m_bracketStyle = bracketAllman;
+        break;
+    case 3:
+        m_bracketStyle = bracketJava;
+        break;
+    case 4:
+        m_bracketStyle = bracketKr;
+        break;
+    case 5:
+        m_bracketStyle = bracketStroustrup;
+        break;
+    case 6:
+        m_bracketStyle = bracketWhitesmith;
+        break;
+    case 7:
+        m_bracketStyle = bracketBanner;
+        break;
+    case 8:
+        m_bracketStyle = bracketGnu;
+        break;
+    case 9:
+        m_bracketStyle = bracketLinux;
+        break;
+    case 10:
+        m_bracketStyle = bracketHorstmann;
+        break;
+    case 11:
+        m_bracketStyle = bracketOnebts;
+        break;
+    case 12:
+        m_bracketStyle = bracketPico;
+        break;
+    case 13:
+        m_bracketStyle = bracketLisp;
+        break;
+    default:
+        m_bracketStyle = bracketDefault;
+        break;
+    };
+}
+
+int AstyleConfig::getIndentStyle() const
+{
+    return static_cast<int>(m_indentStyle);
+}
+
+void AstyleConfig::setIndentStyle(int style)
+{
+    switch (style)
+    {
+    case 1:
+        m_indentStyle = indentTabs;
+        break;
+    case 2:
+        m_indentStyle = indentSpaces;
+        break;
+    case 3:
+        m_indentStyle = indentForceTabs;
+        break;
+    default:
+        m_indentStyle = indentSpaces;
+        break;
+    };
+}
+
+int AstyleConfig::getIndentLength() const
+{
+    return m_indentLength;
+}
+
+void AstyleConfig::setIndentLength(int length)
+{
+    m_indentLength = length;
+}
+
+bool AstyleConfig::getIndentClasses() const
+{
+    return m_indentClasses;
+}
+
+void AstyleConfig::setIndentClasses(bool flag)
+{
+    m_indentClasses = flag;
+}
+
+bool AstyleConfig::getIndentSwitches() const
+{
+    return m_indentSwitches;
+}
+
+void AstyleConfig::setIndentSwitches(bool flag)
+{
+    m_indentSwitches = flag;
+}
+
+bool AstyleConfig::getIndentCases() const
+{
+    return m_indentCases;
+}
+
+void AstyleConfig::setIndentCases(bool flag)
+{
+    m_indentCases = flag;
+
+}
+
+bool AstyleConfig::getIndentNamespaces() const
+{
+    return m_indentNamespaces;
+}
+
+void AstyleConfig::setIndentNamespaces(bool flag)
+{
+    m_indentNamespaces = flag;
+}
+
+bool AstyleConfig::getIndentLabels() const
+{
+    return m_indentLabels;
+}
+
+void AstyleConfig::setIndentLabels(bool flag)
+{
+    m_indentLabels = flag;
+}
+
+bool AstyleConfig::getIndentPreprocessor() const
+{
+    return m_indentPreprocessor;
+}
+
+void AstyleConfig::setIndentPreprocessor(bool flag)
+{
+    m_indentPreprocessor = flag;
+}
+
+bool AstyleConfig::getIndentCol1Comments() const
+{
+    return m_indentCol1Comments;
+}
+
+void AstyleConfig::setIndentCol1Comments(bool flag)
+{
+    m_indentCol1Comments = flag;
+}
+
+int AstyleConfig::getMinConditionalIndent() const
+{
+    return static_cast<int>(m_minConditionalIndent);
+}
+
+void AstyleConfig::setMinConditionalIndent(int indent)
+{
+    switch (indent)
+    {
+    case 0:
+        m_minConditionalIndent = minCondIndentNone;
+        break;
+    case 1:
+        m_minConditionalIndent = minCondIndentOne;
+        break;
+    case 2:
+        m_minConditionalIndent = minCondIndentTwo;
+        break;
+    case 3:
+        m_minConditionalIndent = minCondIndentOneHalf;
+        break;
+    default:
+        m_minConditionalIndent = minCondIndentTwo;
+        break;
+    };
+}
+
+int AstyleConfig::getMaxInStatementIndent() const
+{
+    return m_maxInStatementIndent;
+}
+
+void AstyleConfig::setMaxInStatementIndent(int indent)
+{
+    m_maxInStatementIndent = indent;
+}
+
+bool AstyleConfig::getBreakBlocks() const
+{
+    return m_breakBlocks;
+}
+
+void AstyleConfig::setBreakBlocks(bool flag)
+{
+    m_breakBlocks = flag;
+}
+
+bool AstyleConfig::getBreakBlocksAll() const
+{
+    return m_breakBlocksAll;
+}
+
+void AstyleConfig::setBreakBlocksAll(bool flag)
+{
+    m_breakBlocksAll = flag;
+}
+
+bool AstyleConfig::getPadOper() const
+{
+    return m_padOper;
+}
+
+void AstyleConfig::setPadOper(bool flag)
+{
+    m_padOper = flag;
+}
+
+bool AstyleConfig::getPadParen() const
+{
+    return m_padParen;
+}
+
+void AstyleConfig::setPadParen(bool flag)
+{
+    m_padParen = flag;
+}
+
+bool AstyleConfig::getPadParenOut() const
+{
+    return m_padParenOut;
+}
+
+void AstyleConfig::setPadParenOut(bool flag)
+{
+    m_padParenOut = flag;
+}
+
+bool AstyleConfig::getPadParenIn() const
+{
+    return m_padParenIn;
+}
+
+void AstyleConfig::setPadParenIn(bool flag)
+{
+    m_padParenIn = flag;
+}
+
+bool AstyleConfig::getPadHeader() const
+{
+    return m_padHeader;
+}
+
+void AstyleConfig::setPadHeader(bool flag)
+{
+    m_padHeader = flag;
+}
+
+bool AstyleConfig::getDeleteEmptyLines() const
+{
+    return m_deleteEmptyLines;
+}
+
+void AstyleConfig::setDeleteEmptyLines(bool flag)
+{
+    m_deleteEmptyLines = flag;
+}
+
+bool AstyleConfig::getFillEmptyLines() const
+{
+    return m_fillEmptyLines;
+}
+
+void AstyleConfig::setFillEmptyLines(bool flag)
+{
+    m_fillEmptyLines = flag;
+}
+
+bool AstyleConfig::getBreakClosingBrackets() const
+{
+    return m_breakClosingBrackets;
+}
+
+void AstyleConfig::setBreakClosingBrackets(bool flag)
+{
+    m_breakClosingBrackets = flag;
+}
+
+bool AstyleConfig::getBreakElseifs() const
+{
+    return m_breakElseifs;
+}
+
+void AstyleConfig::setBreakElseifs(bool flag)
+{
+    m_breakElseifs = flag;
+}
+
+bool AstyleConfig::getAddBrackets() const
+{
+    return m_addBrackets;
+}
+
+void AstyleConfig::setAddBrackets(bool flag)
+{
+    m_addBrackets = flag;
+}
+
+bool AstyleConfig::getAddOneLineBrackets() const
+{
+    return m_addOneLineBrackets;
+}
+
+void AstyleConfig::setAddOneLineBrackets(bool flag)
+{
+    m_addOneLineBrackets = flag;
+}
+
+bool AstyleConfig::getKeepOneLineBlocks() const
+{
+    return m_keepOneLineBlocks;
+}
+
+void AstyleConfig::setKeepOneLineBlocks(bool flag)
+{
+    m_keepOneLineBlocks = flag;
+}
+
+bool AstyleConfig::getKeepOneLineStatements() const
+{
+    return m_keepOneLineStatements;
+}
+
+void AstyleConfig::setKeepOneLineStatements(bool flag)
+{
+    m_keepOneLineStatements = flag;
+}
+
+bool AstyleConfig::getConvertTabs() const
+{
+    return m_convertTabs;
+}
+
+void AstyleConfig::setConvertTabs(bool flag)
+{
+    m_convertTabs = flag;
+}
+
+int AstyleConfig::getAlignPointer() const
+{
+    return static_cast<int>(m_alignPointer);
+}
+
+void AstyleConfig::setAlignPointer(int aptr)
+{
+    switch (aptr)
+    {
+    case 1:
+        m_alignPointer = pointerNone;
+        break;
+    case 2:
+        m_alignPointer = pointerType;
+        break;
+    case 3:
+        m_alignPointer = pointerMiddle;
+        break;
+    case 4:
+        m_alignPointer = pointerName;
+        break;
+    default:
+        m_alignPointer = pointerNone;
+        break;
+    };
+}
+
+int AstyleConfig::getAlignReference() const
+{
+    return static_cast<int>(m_alignReference);
+}
+
+void AstyleConfig::setAlignReference(int aref)
+{
+    switch (aref)
+    {
+    case 1:
+        m_alignReference = referenceNone;
+        break;
+    case 2:
+        m_alignReference = referenceType;
+        break;
+    case 3:
+        m_alignReference = referenceMiddle;
+        break;
+    case 4:
+        m_alignReference = referenceName;
+        break;
+    default:
+        m_alignReference = referenceNone;
+        break;
+    };
+}
+
+int AstyleConfig::getFileMode() const
+{
+    return static_cast<int>(m_fileMode);
+}
+
+void AstyleConfig::setFileMode(int mode)
+{
+    switch (mode)
+    {
+    case 1:
+        m_fileMode = modeCpp;
+        break;
+    case 2:
+        m_fileMode = modeCsharp;
+        break;
+    case 3:
+        m_fileMode = modeJava;
+        break;
+    };
 }
 
 std::string AstyleConfig::intToString(int num)
