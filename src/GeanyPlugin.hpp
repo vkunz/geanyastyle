@@ -1,5 +1,5 @@
 /*
- * GeanyAstyle.hpp - Arctic Style plugin for the Geany IDE
+ * GeanyPlugin.hpp - Arctic Style plugin for the Geany IDE
  *
  * Copyright 2011 Valentin Kunz <vale.kunz@googlemail.com>
  *
@@ -17,25 +17,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __GEANYASTYLE_HPP__
-#define __GEANYASTYLE_HPP__
-
-#include "GeanyPlugin.hpp"
+#ifndef __GEANYPLUGIN_HPP__
+#define __GEANYPLUGIN_HPP__
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif // _cplusplus
 
-// functions required by geany plugin api
-gint plugin_version_check(gint version);
-void plugin_set_info(PluginInfo* info);
-void plugin_init(GeanyData* data);
-void plugin_cleanup(void);
-GtkWidget* plugin_configure(GtkDialog *dialog);
+//#include <geany/geanyplugin.h>
+#include <geany/geany.h>
+#include <geany/plugindata.h>
+
+#include <geany/document.h>
+#include <geany/editor.h>
+#include <geany/encodings.h>
+#include <geany/filetypes.h>
+#include <geany/highlighting.h>
+#include <geany/keybindings.h>
+#include <geany/msgwindow.h>
+#include <geany/prefs.h>
+#include <geany/project.h>
+#include <geany/search.h>
+#include <geany/stash.h>
+#include <geany/support.h>
+//#include <geany/templates.h>
+#include <geany/toolbar.h>
+#include <geany/ui_utils.h>
+#include <geany/utils.h>
+
+#include <geany/geanyfunctions.h>
 
 #ifdef __cplusplus
 }
 #endif // _cplusplus
 
-#endif // __GEANYASTYLE_HPP__
+#endif // __GEANYPLUGIN_HPP__

@@ -19,6 +19,11 @@
 
 #include "GeanyAstyle.hpp"
 
+// geany variables
+GeanyPlugin*    geany_plugin;
+GeanyData*      geany_data;
+GeanyFunctions* geany_functions;
+
 // check API version
 gint plugin_version_check(gint abi_ver)
 {
