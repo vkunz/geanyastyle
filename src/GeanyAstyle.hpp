@@ -32,7 +32,7 @@ gint plugin_version_check(gint version);
 void plugin_set_info(PluginInfo* info);
 void plugin_init(GeanyData* data);
 void plugin_cleanup(void);
-GtkWidget* plugin_configure(GtkDialog *dialog);
+GtkWidget* plugin_configure(GtkDialog* dialog);
 
 #ifdef __cplusplus
 }

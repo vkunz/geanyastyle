@@ -15,11 +15,13 @@ endif(CMAKE_BUILD_TYPE STREQUAL Release)
 # geanyastyle sources
 set(geanyastyleSources
     AstyleConfig.cpp
+    Config.cpp
     GeanyAstyle.cpp)
 
 # geanyastyle headers
 set(geanyastyleHeaders
     AstyleConfig.hpp
+    Config.hpp
     GeanyAstyle.hpp)
 
 # add new executable
@@ -29,6 +31,12 @@ add_library(geanyastyle MODULE
 
 # overwrite lib prefix
 set_target_properties(geanyastyle PROPERTIES PREFIX "")
+
+# link against libconfig++
+target_link_libraries(geanyastyle ${LIBCONFIGPP_LIBRARIES})
+
+# link against Boost
+target_link_libraries(geanyastyle ${Boost_LIBRARIES})
 
 # install plugin
 install(TARGETS geanyastyle

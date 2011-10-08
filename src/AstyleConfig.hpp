@@ -31,9 +31,6 @@ public:
     // dtor
     ~AstyleConfig();
 
-    // serialize configuration flags/switches
-    std::string serialize();
-
     enum BracketStyle
     {
         bracketDefault = 1,
@@ -146,6 +143,9 @@ public:
     bool getPadHeader() const;
     void setPadHeader(bool flag);
 
+    bool getUnpadParen() const;
+    void setUnpadParen(bool flag);
+
     bool getDeleteEmptyLines() const;
     void setDeleteEmptyLines(bool flag);
 
@@ -181,6 +181,10 @@ public:
 
     int getFileMode() const;
     void setFileMode(int mode);
+
+    // serialize configuration flags/switches
+    std::string serialize() const;
+
 private:
     // bracket style options
     // bracket style
@@ -282,7 +286,7 @@ private:
     FileMode m_fileMode;                    // --mode=
 
     // intToString conversion helper function
-    std::string intToString(int num);
+    std::string intToString(const int num) const;
 }; // class AstyleConfig
 
 #endif // __ASTYLECONFIG_HPP__

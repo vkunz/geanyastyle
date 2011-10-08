@@ -27,6 +27,17 @@ find_package(PkgConfig REQUIRED)
 # find geany package config using pkg-config
 pkg_check_modules(GEANY REQUIRED geany)
 
+
+# find boost
+find_package(Boost REQUIRED COMPONENTS filesystem)
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+endif(Boost_FOUND)
+
+# find libconfig package config using pkg-config
+pkg_check_modules(LIBCONFIGPP REQUIRED libconfig++)
+
 # add include directories provided by pkg-config
 include_directories(${GEANY_INCLUDE_DIRS})
 

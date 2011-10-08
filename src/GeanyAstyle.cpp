@@ -54,7 +54,7 @@ void plugin_cleanup(void)
 {
 }
 
-GtkWidget* plugin_configure(GtkDialog *dialog)
+GtkWidget* plugin_configure(GtkDialog* dialog)
 {
     // [TODO] add graphical configuration panel
     GtkWidget* vbox = gtk_vbox_new(FALSE, 1);
