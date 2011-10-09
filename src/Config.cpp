@@ -31,34 +31,24 @@ typedef libconfig::Setting lcs;
 Config::Config(std::string& configdir)
 {
     m_aconfig = new AstyleConfig();
-
     m_lconfig = new lc::Config();
 
     boost::filesystem::path p(configdir);
 
+    // add parent directories
     p /= "plugins";
-
-    if(!is_directory(p))
-    {
-        boost::filesystem::create_directory(p);
-    }
-
     p /= "geanyastyle";
 
-    if(!is_directory(p))
-    {
-        boost::filesystem::create_directory(p);
-    }
-
+    // add config file name
     p /= "geanyastyle.conf";
 
+    // store path
     m_filePath = p.c_str();
 }
 
 Config::~Config()
 {
     delete m_aconfig;
-
     delete m_lconfig;
 }
 
@@ -84,11 +74,6 @@ void Config::loadSettings()
     {
         // add default values to settings
         createDefault();
-
-        // write config file with default settings
-        // [TODO] this can be fatal, writeFile throws exceptions, but those are
-        // not catched, fix me
-        m_lconfig->writeFile(m_filePath.c_str());
     }
 
     // lookup settings
@@ -257,6 +242,14 @@ void Config::loadSettings()
 
 void Config::saveSettings()
 {
+    boost::filesystem::path p(m_filePath);
+
+    // remove file name
+    p.remove_filename();
+
+    // create all parent directories if they do not exist
+    boost::filesystem::create_directories(p);
+
     try
     {
         m_lconfig->writeFile(m_filePath.c_str());
