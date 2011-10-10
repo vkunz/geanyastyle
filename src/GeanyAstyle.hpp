@@ -34,8 +34,30 @@ void plugin_init(GeanyData* data);
 void plugin_cleanup(void);
 GtkWidget* plugin_configure(GtkDialog* dialog);
 
+// signal callbacks
+void on_menuitem_activate(GtkMenuItem *menuitem, gpointer user_data);
 #ifdef __cplusplus
 }
 #endif // _cplusplus
 
+class Config;
+
+class GeanyAstyle
+{
+public:
+    // ctor
+    GeanyAstyle();
+
+    // dtor
+    virtual ~GeanyAstyle();
+
+    void formatDocument();
+
+private:
+    static void astyleError(int errorCode, const char* errorText);
+    static char* astyleAlloc(unsigned long size);
+
+    // config
+    Config* m_config;
+}; // class GeanyAstyle
 #endif // __GEANYASTYLE_HPP__
