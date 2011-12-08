@@ -41,6 +41,9 @@ target_link_libraries(geanyastyle ${Boost_LIBRARIES})
 # link against AStyle
 target_link_libraries(geanyastyle ${ASTYLE_LIBRARIES})
 
+# link against geany
+target_link_libraries(geanyastyle ${GEANY_LIBRARIES})
+
 # install plugin
 install(TARGETS geanyastyle
         LIBRARY DESTINATION geany)

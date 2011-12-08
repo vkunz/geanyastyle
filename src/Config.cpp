@@ -43,7 +43,7 @@ Config::Config(std::string& configdir)
     p /= "geanyastyle.conf";
 
     // store path
-    m_filePath = p.c_str();
+    m_filePath = p.string();
 }
 
 Config::~Config()

@@ -28,7 +28,8 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GEANY REQUIRED geany)
 
 # find boost
-find_package(Boost REQUIRED COMPONENTS filesystem)
+# for libboost >= 1.48.0 boost_filesystem need boost_system
+find_package(Boost REQUIRED COMPONENTS filesystem system)
 
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})

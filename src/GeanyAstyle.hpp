@@ -22,6 +22,12 @@
 
 #include "GeanyPlugin.hpp"
 
+#if defined(__MINGW32__) || defined(__MINGW64__)
+#define STDCALL __stdcall
+#else
+#define STDCALL
+#endif
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -36,6 +42,7 @@ GtkWidget* plugin_configure(GtkDialog* dialog);
 
 // signal callbacks
 void on_menuitem_activate(GtkMenuItem *menuitem, gpointer user_data);
+
 #ifdef __cplusplus
 }
 #endif // _cplusplus
@@ -54,8 +61,8 @@ public:
     void formatDocument();
 
 private:
-    static void astyleError(int errorCode, const char* errorText);
-    static char* astyleAlloc(unsigned long size);
+    static void STDCALL astyleError(int errorCode, const char* errorText);
+    static char* STDCALL astyleAlloc(unsigned long size);
 
     // config
     Config* m_config;
