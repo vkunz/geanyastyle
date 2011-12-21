@@ -12,6 +12,7 @@ Requirements
 - cmake
 - pkg-config
 - geany plugin sdk
+- libastyle dev package
 - libconfig dev package
 - boost dev package
 
